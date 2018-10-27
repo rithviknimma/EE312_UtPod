@@ -10,6 +10,7 @@ using namespace std;
 		songName = "";
 		size = 0;
 	}
+	
 	Song::Song(string _artist, string _songName, int _size){
 		artist = _artist;
 		songName = _songName;
@@ -19,13 +20,21 @@ using namespace std;
 	void Song::setArtistName(string artistName){
 		artist = artistName;
 	}
-	
+
 	void Song::setSongName(string songN){
 		songName = songN;
 	}
 
 	void Song::setSize(int songSize){
 		size = songSize;
+	}
+
+	bool Song::operator <(Song const &rhs){
+
+	}
+
+	bool Song::operator >(Song const &rhs){
+
 	}
 
 	bool Song::operator ==(Song const &rhs){

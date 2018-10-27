@@ -31,7 +31,10 @@ class Song{
 		void setSongName(string songN);
 		void setSize(int songSize);
 
+		bool operator <(Song const &rhs);
+		bool operator >(Song const &rhs);
 		bool operator ==(Song const &rhs);
+
 };
 
 #endif

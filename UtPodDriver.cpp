@@ -16,7 +16,7 @@ You will want to do more complete testing.
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()//int argc, char *argv[])
 {
     UtPod t;
     
@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
     cout << "memory = " << t.getRemainingMemory() << endl;
     
 
+    return 0;
 }
 
 

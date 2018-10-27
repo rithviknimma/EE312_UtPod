@@ -21,7 +21,7 @@ class Song{
 		string getArtistName() const{
 			return artist;
 		};
-		string getSongtName() const{
+		string getSongName() const{
 			return songName;
 		};
 		int getSize() const{

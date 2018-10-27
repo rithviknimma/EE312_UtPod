@@ -1,14 +1,17 @@
 #include <cstdlib>
+#include <iostream>
 #include <string>
 #include "UtPod.h"
-
+//#include "Song.h"
 using namespace std;
 
 	UtPod::UtPod(){
+		songs = NULL;
 		memSize = MAX_MEMORY;
 	}
 
 	UtPod::UtPod(int size){
+		songs = NULL;
 		memSize = size;
 	}
 
@@ -17,6 +20,7 @@ using namespace std;
 		if(getRemainingMemory() < s.getSize()){
 			return NO_MEMORY;
 		}
+//cout << s.getSize() << endl;
 
 		// make new SongNode
 		SongNode *newSong = new SongNode;
@@ -30,11 +34,14 @@ using namespace std;
 		}
 		else{
 			SongNode *ptr = songs;
+			SongNode *trail = ptr;
 			while(ptr != NULL){
-				if(ptr->next == NULL){
-					ptr->next = newSong;
-				}
+//cout<< "broken" << endl;
 				ptr = ptr->next;
+				if(ptr == NULL){
+					trail->next = newSong;
+				}
+				trail = ptr;
 			}
 			return SUCCESS;
 		}
@@ -45,6 +52,16 @@ using namespace std;
 	int UtPod::removeSong(Song const &s){
 		SongNode *ptr = songs;
 		SongNode *trail; 
+
+		// code for song to be removed if it is the first one
+		if(ptr != NULL && ptr->s == s){
+			trail = ptr->next;
+			delete ptr;
+			songs = trail;
+			return SUCCESS;
+		}
+
+		// code to remove a song if it is not the first one
 		while(ptr != NULL){
 			if(ptr->s == s){
 				trail->next = ptr->next;
@@ -56,7 +73,7 @@ using namespace std;
 			ptr = ptr->next;
 		}
 
-		return NOT_FOUND;
+		return NOT_FOUND; // error message if song not found
 	}
 
 	void UtPod::shuffle(){
@@ -64,7 +81,11 @@ using namespace std;
 	}
 
 	void UtPod::showSongList(){
-
+		SongNode *ptr = songs;
+		while(ptr != NULL){
+			cout << "*" << ptr->s.getSongName() << " " << "Aritst: " << ptr->s.getArtistName() << " " << "size: " << ptr->s.getSize() << endl;
+			ptr = ptr->next;
+		}	
 	}
 
 	void UtPod::sortSongList(){
@@ -89,5 +110,13 @@ using namespace std;
 
 	UtPod::~UtPod(){
 		// clean up
+		SongNode *ptr = songs;
+		SongNode *trail = ptr;
+		while(ptr != NULL){
+			ptr = trail->next;
+			delete trail;
+			trail = ptr;
+		}
+		delete trail;
 	}
 

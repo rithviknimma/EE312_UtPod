@@ -16,6 +16,18 @@ using namespace std;
 		size = _size;
 	}
 
+	void Song::setArtistName(string artistName){
+		artist = artistName;
+	}
+	
+	void Song::setSongName(string songN){
+		songName = songN;
+	}
+
+	void Song::setSize(int songSize){
+		size = songSize;
+	}
+
 	bool Song::operator ==(Song const &rhs){
 		return (artist == rhs.artist && songName == rhs.songName && size == rhs.size);
 	}

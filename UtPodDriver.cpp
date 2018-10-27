@@ -19,9 +19,17 @@ using namespace std;
 int main()//int argc, char *argv[])
 {
     UtPod t;
-    
+    //Song s1("Beatles", "Hey Jude1", 4);
+    Song s6;
+    s6.setArtistName("Carlos");
+    s6.setSongName("Ricky is so cool");
+    s6.setSize(420);
+    int result = t.addSong(s6);
+    cout << "result = " << result << endl;
+
+    t.showSongList();
     Song s1("Beatles", "Hey Jude1", 4);
-    int result = t.addSong(s1);
+    result = t.addSong(s1);
     cout << "result = " << result << endl;
     
     t.showSongList();

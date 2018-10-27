@@ -1,6 +1,5 @@
-// need check if equal operator
+
 // need greater than and less than operators for sorting 
-// need getSize fucntion
 
 //i dont know what this is but since Utpod has this I'll include this
 #ifndef SONG_H
@@ -27,6 +26,10 @@ class Song{
 		int getSize() const{
 			return size;
 		};
+
+		void setArtistName(string artistName);
+		void setSongName(string songN);
+		void setSize(int songSize);
 
 		bool operator ==(Song const &rhs);
 };

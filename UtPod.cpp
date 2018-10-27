@@ -3,6 +3,7 @@
 #include <string>
 #include "UtPod.h"
 //#include "Song.h"
+
 using namespace std;
 
 	UtPod::UtPod(){
@@ -30,7 +31,7 @@ using namespace std;
 
 		if(songs == NULL){
 			songs = newSong;
-			return SUCCESS;
+			//return SUCCESS;
 		}
 		else{
 			SongNode *ptr = songs;
@@ -43,7 +44,7 @@ using namespace std;
 				}
 				trail = ptr;
 			}
-			return SUCCESS;
+			//return SUCCESS;
 		}
 		return SUCCESS;
 	}
@@ -83,7 +84,9 @@ using namespace std;
 	void UtPod::showSongList(){
 		SongNode *ptr = songs;
 		while(ptr != NULL){
-			cout << "*" << ptr->s.getSongName() << " " << "Aritst: " << ptr->s.getArtistName() << " " << "size: " << ptr->s.getSize() << endl;
+			cout << "* Song: " << ptr->s.getSongName() << endl;
+			cout << "  Artist: " << ptr->s.getArtistName() << endl;
+			cout << "  Size: " << ptr->s.getSize() << endl;
 			ptr = ptr->next;
 		}	
 	}

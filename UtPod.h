@@ -2,7 +2,7 @@
 
 #ifndef UTPOD_H
 #define UTPOD_H
-#include "Song.h"
+#include "song.h"
 
 //UtPod class declaration
 class UtPod
@@ -22,7 +22,9 @@ class UtPod
       SongNode *songs;  //the head pointer
       
       int memSize;
+      int numNodes();
       int getUsedMem();
+
 
    public:
       UtPod();

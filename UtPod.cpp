@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include "UtPod.h"
+#include <time.h>
+
 //#include "Song.h"
 
 using namespace std;
@@ -16,13 +18,15 @@ using namespace std;
 		memSize = size;
 	}
 
+	/*
+		pre: song has to be initialized
+		post: songs list populated with a song
+	*/
 	int UtPod::addSong(Song const &s){
 		// account for memory
 		if(getRemainingMemory() < s.getSize()){
 			return NO_MEMORY;
 		}
-//cout << s.getSize() << endl;
-
 		// make new SongNode
 		SongNode *newSong = new SongNode;
 		//newSong->s = *s;
@@ -37,7 +41,6 @@ using namespace std;
 			SongNode *ptr = songs;
 			SongNode *trail = ptr;
 			while(ptr != NULL){
-//cout<< "broken" << endl;
 				ptr = ptr->next;
 				if(ptr == NULL){
 					trail->next = newSong;
@@ -49,7 +52,9 @@ using namespace std;
 		return SUCCESS;
 	}
 
-	// will only delete the first instance of the song
+	/*  pre: 
+		post: will only delete the first instance of the song
+	*/
 	int UtPod::removeSong(Song const &s){
 		SongNode *ptr = songs;
 		SongNode *trail; 
@@ -78,21 +83,86 @@ using namespace std;
 	}
 
 	void UtPod::shuffle(){
+		unsigned int currentTime = (unsigned) time(0);
+		srand(currentTime);
 
+		int numLoops = numNodes();
+		int randomNum1; 
+		int randomNum2;
+
+		Song temp; 
+		//SongNode *ptr = songs;
+		SongNode *adr1 = songs;
+		SongNode *adr2 = songs;
+
+		for(int i = 0; i < 2*numLoops; i++){
+			randomNum1 = rand() % numLoops + 1;
+			randomNum2 = rand() % numLoops + 1;
+
+			for(int node1 = 1; node1 < randomNum1; node1++){
+				adr1 = adr1->next;
+			}
+
+			for(int node2 = 1; node2 < randomNum2; node2++){
+				adr2 = adr2->next;
+			}
+
+			temp = adr1->s;
+			adr1->s = adr2->s;
+			adr2->s = temp;
+
+			adr1 = songs;
+			adr2 = songs;
+		}
+
+	}
+
+	int UtPod::numNodes(){
+		SongNode *ptr = songs;
+		int nodes = 0;
+
+		while (ptr != NULL){
+			nodes++;
+			ptr = ptr->next;
+		}
+		return nodes;
 	}
 
 	void UtPod::showSongList(){
 		SongNode *ptr = songs;
 		while(ptr != NULL){
-			cout << "* Song: " << ptr->s.getSongName() << endl;
-			cout << "  Artist: " << ptr->s.getArtistName() << endl;
+			cout << "* Artist: " << ptr->s.getArtistName() << endl;
+			cout << "  Song: " << ptr->s.getSongName() << endl;
 			cout << "  Size: " << ptr->s.getSize() << endl;
 			ptr = ptr->next;
 		}	
 	}
 
-	void UtPod::sortSongList(){
 
+
+	void UtPod::sortSongList(){
+   		SongNode *minNode = songs;           //used to know where to insert larger song of pair of compared songs
+   		SongNode *ptr = songs;               //outer while loop
+   		SongNode *cmpr = songs;              //inner while loop
+    	Song min = ptr->s;                   //copy of song (min song)
+
+   		while (ptr != NULL){
+     		while (cmpr != NULL){
+        		cmpr = cmpr->next;
+         		if (cmpr != NULL && cmpr->s < min){
+          		   min = cmpr->s;
+          		   minNode = cmpr;
+        		}
+      		}
+      
+      		minNode->s = ptr->s;
+     		ptr->s = min;
+      		ptr = ptr->next;
+     		cmpr= ptr;
+     		if(ptr != NULL){
+     			min = ptr->s;
+     		}
+    	}
 	}
 
 	int UtPod::getRemainingMemory(){

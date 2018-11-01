@@ -6,7 +6,7 @@
 
 /*
 
-Code By: Rithvik Baddam and Carlos Villapudua
+Code By: Rithvik Baddam (rrb2442) and Carlos Villapudua (civ298)
 Date:	10/28/18
 
 UtPod.h has prototypes for functions in UtPod.cpp and has const values for 
@@ -54,6 +54,7 @@ class UtPod
       */
 
       int getUsedMem();   
+      
    public:
       //Default constructor
       //set the memory size to MAX_MEMORY

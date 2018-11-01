@@ -4,7 +4,7 @@
 
 /*
 
-Code By: Rithvik Baddam and Carlos Villapudua
+Code By: Rithvik Baddam (rrb2442) and Carlos Villapudua (civ298)
 Date:	10/28/18
 
 song.cpp has functions to add songs, set song properties, and procedures for >, <, and == operators

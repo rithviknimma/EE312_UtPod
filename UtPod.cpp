@@ -6,7 +6,7 @@
 
 /*
 
-Code By: Rithvik Baddam and Carlos Villapudua
+Code By: Rithvik Baddam (rrb2442) and Carlos Villapudua (civ298)
 Date:	10/28/18
 
 UtPod.cpp has functions to construct a UtPod object, add/remove songs, shuffle/sort songs
@@ -175,7 +175,11 @@ using namespace std;
    		SongNode *minNode = songs;           //used to know where to insert larger song of pair of compared songs
    		SongNode *ptr = songs;               //outer while loop
    		SongNode *cmpr = songs;              //inner while loop
-    	Song min = ptr->s;                   //copy of song (min song)
+   		Song min;
+   		if(ptr != NULL){
+   			min = ptr->s; 
+   		}
+    	//Song min = ptr->s;                   //copy of song (min song)
 
 //nested while loop used to make search for smallest number smaller each time
    		while (ptr != NULL){		

@@ -20,7 +20,8 @@ using namespace std;
 
 /*
 
-Code By: Rithvik Baddam and Carlos Villapudua
+Code By: Rithvik Baddam (rrb2442) and Carlos Villapudua (civ298)
+
 Date:	10/28/18
 
 UtPodDriver.cpp tests ALL functions in song.cpp and UtPod.cpp to ensure they work properly
@@ -38,34 +39,6 @@ UtPodDriver.cpp tests ALL functions in song.cpp and UtPod.cpp to ensure they wor
 int main()
 {
     UtPod t;
-
-    /*Song s1("Beatles", "Hey Jude1", 2);
-    int result = t.addSong(s1);
-    cout << "result = " << result << endl;
-    
-    t.showSongList();
-          
-    Song s2("Beatles", "Hey Jude1", 3);
-    result = t.addSong(s2);
-    cout << "result = " << result << endl;
-    
-    t.showSongList();
-
-    if(s1 > s2){
-        cout << "greater than" << endl;
-    }
-    else if(s1 < s2){
-        cout << "less than" << endl;
-    }
-    //Song s1("Beatles", "Hey Jude1", 4);
-    
-    Song s6;
-    s6.setArtistName("Carlos");
-    s6.setSongName("Ricky is so cool");
-    s6.setSize(420);
-    int result = t.addSong(s6);
-    cout << "result = " << result << endl;
-    */
 
     Song s1("Beatles", "Hey Jude", 4);
     Song s2("Ed Sheeran", "Perfect", 12);
@@ -122,7 +95,6 @@ int main()
     cout << "Remaining Memory: " << t.getRemainingMemory() << endl;
 
     cout << "*************************" << endl;
-
     cout << "SORTED LIST" << endl;
     t.sortSongList();
     t.showSongList();
@@ -133,7 +105,6 @@ int main()
     t.showSongList();
 
     cout << "*************************" << endl;
-
     result = t.removeSong(s3);
     cout << "delete result = " << result << endl; 
     result = t.removeSong(s4);
@@ -146,6 +117,7 @@ int main()
     cout << "delete result = " << result << endl; 
     result = t.removeSong(s12);
     cout << "delete result = " << result << endl; 
+    
     
     cout << "*************************" << endl;
     cout << "AFTER REMOVING SONGS" << endl;
@@ -174,10 +146,53 @@ int main()
     t.showSongList();
 
     cout << "*************************" << endl;
+    cout << "Testing custom size UtPod" << endl;
+    UtPod s(200);
+    result = s.addSong(s1);
+    cout << "result = " << result << endl;
+    result = s.addSong(s4);
+    cout << "result = " << result << endl;
+    result = s.addSong(s5);
+    cout << "result = " << result << endl;
+    result = s.addSong(s7);
+    cout << "result = " << result << endl;   
+
+    Song s13("Yale Patt", "Octals", 200);
+    result = s.addSong(s13);
+    cout << "result = " << result << endl; 
+    s.showSongList();
+
+    cout << "*************************" << endl;
+    cout << "SORTED CUSTOM UtPod" <<endl;
+    s.sortSongList();
+    s.showSongList();
 
 
-    
-    
+    cout << "*************************" << endl;
+    cout << "SHUFFLED CUSTOM UtPod" << endl;
+    s.shuffle();    
+    s.showSongList();
+    cout << "Total Memory: " << s.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << s.getRemainingMemory() << endl;
+
+
+    cout << "*************************" << endl;
+    cout << "CLEARED CUSTOM UtPod" << endl;
+    s.clearMemory();
+    cout << "Total Memory: " << s.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << s.getRemainingMemory() << endl;
+
+
+    cout << "*************************" << endl;
+    cout << "Testing Song made by default constructor and set functions" << endl;
+    Song s14;
+    s14.setArtistName("Carlos");
+    s14.setSongName("Ricky is so cool");
+    s14.setSize(20);
+    result = s.addSong(s14);
+    cout << "result = " << result << endl;
+    s.showSongList();
+
     return 0;
 }
 

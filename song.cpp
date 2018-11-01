@@ -45,8 +45,6 @@ using namespace std;
 	bool Song::operator <(Song const &rhs){		//override less than operator
    
    		if (artist.compare(rhs.artist) < 0){		//if left handside artist is less than right side artist, return true
-
-
 //compare function returns less than 0 if artist is less than right hand side artist
       		return true;
    		}

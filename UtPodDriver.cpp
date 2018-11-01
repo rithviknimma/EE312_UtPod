@@ -53,69 +53,117 @@ int main()
     int result = t.addSong(s6);
     cout << "result = " << result << endl;
     */
-    //t.showSongList();
-    Song s1("Beatles", "Hey Jude1", 4);
-    int result = t.addSong(s1);
-    cout << "result = " << result << endl;
-    
-    //t.showSongList();
-          
-    Song s5("Beatles", "Hey Jude1", 241);
-    result = t.addSong(s5);
-    cout << "add result = " << result << endl;
 
-    Song s4("Beatles", "Hey Jude1", 7);
-    result = t.addSong(s4);
-    cout << "result = " << result << endl;
+    Song s1("Beatles", "Hey Jude", 4);
+    Song s2("Ed Sheeran", "Perfect", 12);
+    Song s3("Sheck Wes", "Mo Bamba", 6);
+    Song s4("Sheck Wes", "Kyrie", 4);
+    Song s5("Ellie Goulding", "Love me like you do", 7);
+    Song s6("Shakira", "Hips Don't Lie", 10);
+    Song s7("O.T Genesis", "Ricky", 15);
+    Song s8("Drake", "Non Stop", 14);
+    Song s9("Drake", "In My Feelings", 14);
+    Song s10("Drake", "In My Feelings", 15);
+    Song s11("Drake", "Gods's Plan", 12);
+    Song s12("Drake", "Gods's Plan", 500);
 
-    Song s2("Beatles", "Hey Jude1", 5);
+    int result;
+    cout << "Results of adding songs" << endl;
+    result = t.addSong(s1);
+    cout << "result = " << result << endl;
     result = t.addSong(s2);
     cout << "result = " << result << endl;
-       
-    Song s3("Beatles", "Hey Jude1", 6);
     result = t.addSong(s3);
     cout << "result = " << result << endl;
-       
-    t.showSongList();
-       
-    t.sortSongList();
-
-    cout << "*************************" << endl;
-
-    t.showSongList();
-
-    t.shuffle();
-
-    cout << "*************************" << endl;
-
-    t.showSongList();
-    
-    /*result = t.removeSong(s2);
-    cout << "delete result = " << result << endl;
-  
-    result = t.removeSong(s3);
-    cout << "delete result = " << result << endl;
-
-    t.showSongList();
-    
-    result = t.removeSong(s1);
-    cout << "delete result = " << result << endl;
- 
-    result = t.removeSong(s5);
-    cout << "delete result = " << result << endl;
-    
-    result = t.removeSong(s4);
-    cout << "delete result = " << result << endl;
-    
-    
-    t.showSongList();
-    
+    result = t.addSong(s4);
+    cout << "result = " << result << endl;
     result = t.addSong(s5);
-    cout << "add result = " << result << endl;
-    
+    cout << "result = " << result << endl;  
+
+    cout << "*************************" << endl;
     t.showSongList();
-    cout << "memory = " << t.getRemainingMemory() << endl;
-    */
+    cout << "Total Memory: " << t.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << t.getRemainingMemory() << endl;
+    cout << "*************************" << endl;
+
+    result = t.addSong(s6);
+    cout << "result = " << result << endl;
+    result = t.addSong(s7);
+    cout << "result = " << result << endl;
+    result = t.addSong(s8);
+    cout << "result = " << result << endl;
+    result = t.addSong(s9);
+    cout << "result = " << result << endl;
+    result = t.addSong(s10);
+    cout << "result = " << result << endl; 
+    result = t.addSong(s11);
+    cout << "result = " << result << endl; 
+    result = t.addSong(s12);
+    cout << "result = " << result << endl; 
+    t.showSongList();
+
+    cout << "*************************" << endl;
+    cout << "After adding all songs" << endl;
+    t.showSongList();
+    cout << "Total Memory: " << t.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << t.getRemainingMemory() << endl;
+
+    cout << "*************************" << endl;
+
+    cout << "SORTED LIST" << endl;
+    t.sortSongList();
+    t.showSongList();
+
+    cout << "*************************" << endl;
+    cout << "SHUFFLED LIST" << endl;
+    t.shuffle();
+    t.showSongList();
+
+    cout << "*************************" << endl;
+
+    result = t.removeSong(s3);
+    cout << "delete result = " << result << endl; 
+    result = t.removeSong(s4);
+    cout << "delete result = " << result << endl; 
+    result = t.removeSong(s2);
+    cout << "delete result = " << result << endl; 
+    result = t.removeSong(s1);
+    cout << "delete result = " << result << endl; 
+    result = t.removeSong(s10);
+    cout << "delete result = " << result << endl; 
+    result = t.removeSong(s12);
+    cout << "delete result = " << result << endl; 
+    
+    cout << "*************************" << endl;
+    cout << "AFTER REMOVING SONGS" << endl;
+    t.showSongList();
+
+    cout << "*************************" << endl;
+    cout << "Memory after removing some songs" << endl;
+    t.showSongList();
+    cout << "Total Memory: " << t.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << t.getRemainingMemory() << endl;
+
+    cout << "*************************" << endl;
+    cout << "CLEARED MEM" << endl;
+    t.clearMemory();
+    t.showSongList();
+
+    cout << "*************************" << endl;
+    cout << "After removing all songs" << endl;
+    t.showSongList();
+    cout << "Total Memory: " << t.getTotalMemory() << endl;
+    cout << "Remaining Memory: " << t.getRemainingMemory() << endl;
+
+    cout << "*************************" << endl;
+    cout << "Add song after clearing" << endl;
+    t.addSong(s1);
+    t.showSongList();
+
+    cout << "*************************" << endl;
+
+
+    
     
     return 0;
 }

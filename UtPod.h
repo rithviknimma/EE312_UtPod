@@ -2,7 +2,7 @@
 
 #ifndef UTPOD_H
 #define UTPOD_H
-#include "Song.h"
+#include "song.h"
 
 //UtPod class declaration
 class UtPod
@@ -22,7 +22,28 @@ class UtPod
       SongNode *songs;  //the head pointer
       
       int memSize;
-   
+
+     /* FUNCTION - int numNodes
+       * finds number of nodes (songs) in the UtPod
+       * returns int type
+
+         input parms - none
+
+         output parms - number of songs, of int type
+      */
+
+      int numNodes();
+
+
+      /* FUNCTION - int getUsedMem
+       *  returns the amount of memory used to store songs
+
+         input parms -  none
+
+         output parms - returns amount of memory (MB) taken by songs in int data type
+      */
+
+      int getUsedMem();   
    public:
       //Default constructor
       //set the memory size to MAX_MEMORY
@@ -87,20 +108,6 @@ class UtPod
 
       void showSongList();
 
-     /* FUNCTION - int numNodes
-       * finds number of nodes (songs) in the UtPod
-       * returns int type
-
-         input parms - none
-
-         output parms - number of songs, of int type
-      */
-
-      int numNodes();
-
-
-
-
       /* FUNCTION - void sortSongList
        *  sorts the songs in ascending order
           o will do nothing if there are less than two songs in the current list
@@ -112,28 +119,6 @@ class UtPod
 
       void sortSongList();
 
-     /* FUNCTION - int getRemainingMemory
-       *  returns the amount of memory available for adding new songs
-
-         input parms -	none
-
-         output parms -	returns amount of memory (MB)  left in int data type
-      */
-
-      int getRemainingMemory();
-
-
-/* FUNCTION - int getUsedMem
-       *  returns the amount of memory used to store songs
-
-         input parms -	none
-
-         output parms -	returns amount of memory (MB) taken by songs in int data type
-      */
-
-      int getUsedMem()
-
-
       /* FUNCTION - void clearMemory
        * clears all the songs from memory
 
@@ -142,7 +127,6 @@ class UtPod
          output parms - none
       */
       void clearMemory();
-
 
       /* FUNCTION - int getTotalMemory
        *  returns the total amount of memory in the UtPod
@@ -157,11 +141,17 @@ class UtPod
          return memSize;
       }
 
+     /* FUNCTION - int getRemainingMemory
+       *  returns the amount of memory available for adding new songs
 
+         input parms -  none
 
+         output parms - returns amount of memory (MB)  left in int data type
+      */
+
+      int getRemainingMemory();
       
-
-
+      // UtPod Destructor
       ~UtPod();
  
 };

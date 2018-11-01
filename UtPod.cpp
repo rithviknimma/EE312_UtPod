@@ -21,7 +21,12 @@ using namespace std;
 
 	UtPod::UtPod(int size){
 		songs = NULL;
-		memSize = size;
+		if(size > MAX_MEMORY || size < 0){
+			memSize = MAX_MEMORY;
+		}
+		else{
+			memSize = size;
+		}
 	}
 
 	
@@ -148,9 +153,7 @@ using namespace std;
 	void UtPod::showSongList(){
 		SongNode *ptr = songs;
 		while(ptr != NULL){
-			cout << "* Artist: " << ptr->s.getArtistName() << endl;
-			cout << "  Song: " << ptr->s.getSongName() << endl;
-			cout << "  Size: " << ptr->s.getSize() << endl;
+			cout << "Song:" << ptr->s.getSongName() << ", Artist: " << ptr->s.getArtistName() << ", Size: " << ptr->s.getSize() << " (MB)" << endl;
 			ptr = ptr->next;
 		}	
 	}
@@ -179,11 +182,28 @@ using namespace std;
      		ptr->s = min;
 //reset ptr and cmpr to make search list smaller this time -- only reset min if not at NULL ptr
       		ptr = ptr->next;
+      		minNode = ptr;
      		cmpr= ptr;
      		if(ptr != NULL){
      			min = ptr->s;
      		}
     	}
+	}
+
+//pre: UtPod has been constructed
+//post: utPod object is completely deleted
+	void UtPod::clearMemory(){
+		// clean up
+		SongNode *ptr = songs;
+		SongNode *trail = ptr;
+//delete all nodes until you reach NULL ptr
+		while(ptr != NULL){
+			ptr = trail->next;
+			delete trail;
+			trail = ptr;
+		}
+		delete trail;	
+		songs = NULL;  //head pointed set to null to show that the list is empty
 	}
 
 //pre: have a constructed UtPod
@@ -211,14 +231,6 @@ using namespace std;
 //pre: have a constructed UtPod
 //post: utPod object is completely deleted
 	UtPod::~UtPod(){
-		SongNode *ptr = songs;
-		SongNode *trail = ptr;
-//delete all nodes until you reach NULL ptr
-		while(ptr != NULL){
-			ptr = trail->next;
-			delete trail;
-			trail = ptr;
-		}
-		delete trail;		// delete NULL ptr?
+		clearMemory();
 	}
 

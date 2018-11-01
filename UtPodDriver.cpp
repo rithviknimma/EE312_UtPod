@@ -85,8 +85,9 @@ int main()
     result = t.addSong(s11);
     cout << "result = " << result << endl; 
     result = t.addSong(s12);
-    cout << "result = " << result << endl; 
-    t.showSongList();
+    cout << "result = " << result << endl; 				
+    /*s12 should return result of -1 because there is not enough         	space in UtPod for it */
+    t.showSongList();						
 
     cout << "*************************" << endl;
     cout << "After adding all songs" << endl;
@@ -117,6 +118,7 @@ int main()
     cout << "delete result = " << result << endl; 
     result = t.removeSong(s12);
     cout << "delete result = " << result << endl; 
+	/* we should get -2 as result because s12 was never added -- thus it cannot be removed either */
     
     
     cout << "*************************" << endl;
@@ -160,6 +162,7 @@ int main()
     Song s13("Yale Patt", "Octals", 200);
     result = s.addSong(s13);
     cout << "result = " << result << endl; 
+	/* s13 should not be added (result of -1) because there is 	less than 200 MB left -- thus it cannot fit in UtPod */
     s.showSongList();
 
     cout << "*************************" << endl;

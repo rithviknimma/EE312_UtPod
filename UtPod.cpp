@@ -24,12 +24,18 @@ using namespace std;
 	UtPod::UtPod(){
 		songs = NULL;
 		memSize = MAX_MEMORY;
+		unsigned int currentTime = (unsigned) time(0);
+		srand(currentTime);		//seed rand function with time, which is different at ANY moment
+
 	}
 
 //pre: size is given in int form
 //post: UtPod is constructed with nothing inside, but with memSize of parameter passed size
 
 	UtPod::UtPod(int size){
+		unsigned int currentTime = (unsigned) time(0);
+		srand(currentTime);		//seed rand function with time, which is different at ANY moment
+
 		songs = NULL;
 		if(size > MAX_MEMORY || size < 0){
 			memSize = MAX_MEMORY;
@@ -106,9 +112,7 @@ using namespace std;
 //pre: UtPod has not been shuffled
 //post: UtPod is shuffled
 	void UtPod::shuffle(){
-		unsigned int currentTime = (unsigned) time(0);
-		srand(currentTime);		//seed rand function with time, which is different at ANY moment
-
+		
 		int numLoops = numNodes();
 //create two random Numbers to choose which two nodes to swap
 		int randomNum1;		

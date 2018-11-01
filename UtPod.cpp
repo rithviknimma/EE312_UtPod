@@ -4,6 +4,16 @@
 #include "UtPod.h"
 #include <time.h>
 
+/*
+
+Code By: Rithvik Baddam and Carlos Villapudua
+Date:	10/28/18
+
+UtPod.cpp has functions to construct a UtPod object, add/remove songs, shuffle/sort songs
+show songs in UtPod, clear UtPod of songs,and functions to find remaining memory in UtPod
+
+*/
+
 //#include "Song.h"
 
 using namespace std;

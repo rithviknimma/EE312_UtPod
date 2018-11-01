@@ -4,6 +4,16 @@
 #define UTPOD_H
 #include "song.h"
 
+/*
+
+Code By: Rithvik Baddam and Carlos Villapudua
+Date:	10/28/18
+
+UtPod.h has prototypes for functions in UtPod.cpp and has const values for 
+return codes of success/failure and max memory of any UtPod object
+
+*/
+
 //UtPod class declaration
 class UtPod
 {

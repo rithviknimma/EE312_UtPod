@@ -1,3 +1,12 @@
+/*
+
+Code By: Rithvik Baddam and Carlos Villapudua
+Date:	10/28/18
+
+song.h has function prototypes for song.cpp functions 
+
+*/
+
 
 
 //i dont know what this is but since Utpod has this I'll include this

@@ -2,6 +2,15 @@
 #include <string>
 #include "song.h"
 
+/*
+
+Code By: Rithvik Baddam and Carlos Villapudua
+Date:	10/28/18
+
+song.cpp has functions to add songs, set song properties, and procedures for >, <, and == operators
+
+*/
+
 // set variable functions and make operator functions
 using namespace std;
 

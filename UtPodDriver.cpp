@@ -16,6 +16,19 @@ You will want to do more complete testing.
 
 using namespace std;
 
+
+
+/*
+
+Code By: Rithvik Baddam and Carlos Villapudua
+Date:	10/28/18
+
+UtPodDriver.cpp tests ALL functions in song.cpp and UtPod.cpp to ensure they work properly
+
+*/
+
+
+
 // comment inside functions
 // write pre and post conditions
 // write readme file

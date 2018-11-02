@@ -30,26 +30,21 @@ using namespace std;
 		size = _size;
 	}
 
-//pre: string is passed to function
-//post: specified object of Song type is given an artist of string type
+
 	void Song::setArtistName(string artistName){		//solely sets artist name
 		artist = artistName;
 	}
 
-//pre: string is passed to function
-//post: specified object of Song type is given a songName of string type
+
 	void Song::setSongName(string songN){		//solely sets songName
 		songName = songN;
 	}
 
-//pre: int is passed to function
-//post: specified object of Song type is given a size of int type
+
 	void Song::setSize(int songSize){		//solely sets size of song
 		size = songSize;
 	}
 
-//pre: two valid and populated songs are passed to function through override of < operator (with Song type)
-//post: returns true if song on left side is less than song on right side -- returns false for any other case
 	
 	bool Song::operator <(Song const &rhs){		//override less than operator
    
@@ -73,9 +68,6 @@ using namespace std;
 	}
 
 
-
-//pre: two valid and populated songs are passed to function through overriding of operator
-//post: returns true if left side song is greater than right side song -- returns false for any other case
 	bool Song::operator >(Song const &rhs){		//override operator for greater than sign
 		if(artist.compare(rhs.artist) > 0){		//compare function returns a number greater than 0 if artist (artist part of left hand side song) is larger than rhs.artist
 			return true;
@@ -97,10 +89,6 @@ using namespace std;
 
 		return false;
 	}
-
-
-//pre: two valid and populated songs (no nonsense values) are passed to function
-//post: returns true if both songs are the same song -- returns false if songs are not the same
 
 	bool Song::operator ==(Song const &rhs){
 		return (artist == rhs.artist && songName == rhs.songName && size == rhs.size);		//if all elements of right and left side songs are equal, then return true

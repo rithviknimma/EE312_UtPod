@@ -46,8 +46,6 @@ using namespace std;
 	}
 
 	
-//pre: song has to be initialized
-//post: songs list populated with a song
 
 	int UtPod::addSong(Song const &s){
 		// account for memory
@@ -79,9 +77,6 @@ using namespace std;
 		return SUCCESS;			//return success if whole process is gone through
 	}
 
-//pre: 
-//post: will only delete the first instance of the song
-	
 	int UtPod::removeSong(Song const &s){
 		SongNode *ptr = songs;
 		SongNode *trail; 
@@ -108,9 +103,6 @@ using namespace std;
 
 		return NOT_FOUND; // error message if song not found
 	}
-
-//pre: UtPod has not been shuffled
-//post: UtPod is shuffled
 	void UtPod::shuffle(){
 		
 		int numLoops = numNodes();
@@ -149,8 +141,6 @@ using namespace std;
 	}
 
 
-//pre: UtPod has been constructed
-//post: number of songs in UtPod is returned
 	int UtPod::numNodes(){
 		SongNode *ptr = songs;
 		int nodes = 0;
@@ -162,8 +152,6 @@ using namespace std;
 		return nodes;
 	}
 
-//pre: have utPod constructed
-//post: print out contents of UtPod
 	void UtPod::showSongList(){
 		SongNode *ptr = songs;
 		while(ptr != NULL){
@@ -173,8 +161,6 @@ using namespace std;
 	}
 
 
-//pre: UtPod has been constructed
-//post: UtPod will be sorted from smallest to largest 
 	void UtPod::sortSongList(){
    		SongNode *minNode = songs;           //used to know where to insert larger song of pair of compared songs
    		SongNode *ptr = songs;               //outer while loop
@@ -198,7 +184,7 @@ using namespace std;
       //swap whatever was in minNode and ptr
       		minNode->s = ptr->s;
      		ptr->s = min;
-//reset ptr and cmpr to make search list smaller this time -- only reset min if not at NULL ptr
+     		//reset ptr and cmpr to make search list smaller this time -- only reset min if not at NULL ptr
       		ptr = ptr->next;
       		minNode = ptr;
      		cmpr= ptr;
@@ -207,9 +193,6 @@ using namespace std;
      		}
     	}
 	}
-
-//pre: UtPod has been constructed
-//post: utPod object is completely deleted
 	void UtPod::clearMemory(){
 		// clean up
 		SongNode *ptr = songs;
@@ -224,15 +207,12 @@ using namespace std;
 		songs = NULL;  //head pointed set to null to show that the list is empty
 	}
 
-//pre: have a constructed UtPod
-//post: number of MB in memory available is returned
+
 	int UtPod::getRemainingMemory(){
 		int usedMem = getUsedMem();
 		return memSize - usedMem;
 	}
 
-//pre: have a constructed UtPod
-//post: number of MB in memory already used is returned
 
 	int UtPod::getUsedMem(){
 		int usedMem = 0;

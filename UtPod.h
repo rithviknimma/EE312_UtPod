@@ -51,6 +51,10 @@ class UtPod
          input parms -  none
 
          output parms - returns amount of memory (MB) taken by songs in int data type
+
+        //pre: have a constructed UtPod
+        //post: number of MB in memory already used is returned
+
       */
 
       int getUsedMem();   
@@ -76,7 +80,12 @@ class UtPod
        input parms - address of song variable to add to UTPod
 
        output parms - success/no memory code
+
+
+        pre: song has to be initialized
+        post: songs list populated with a song
       */
+
 
       int addSong(Song const &s);
 
@@ -91,6 +100,11 @@ class UtPod
          input parms -	address of object of song to remove
 
          output parms - success/fail code 
+
+        //pre: must be song in UtPod
+        //post: will only delete the first instance of the song
+	
+
       */
 
       int removeSong(Song const &s);
@@ -103,6 +117,11 @@ class UtPod
          input parms - none
 
          output parms - none
+
+
+        //pre: UtPod has not been shuffled
+        //post: UtPod is shuffled
+
       */
 
       void shuffle();
@@ -115,6 +134,10 @@ class UtPod
          input parms - none
 
          output parms - none, but prints list of songs to console
+
+        //pre: UtPod has been constructed
+        //post: number of songs in UtPod is returned
+
       */
 
       void showSongList();
@@ -126,6 +149,11 @@ class UtPod
          input parms - none
 
          output parms - none
+
+        //pre: UtPod has been constructed
+        //post: UtPod will be sorted from smallest to largest
+
+
       */
 
       void sortSongList();
@@ -136,7 +164,13 @@ class UtPod
          input parms - none
 
          output parms - none
+
+
+        //pre: UtPod has been constructed
+        //post: utPod object is completely deleted
+
       */
+
       void clearMemory();
 
       /* FUNCTION - int getTotalMemory
@@ -158,6 +192,9 @@ class UtPod
          input parms -  none
 
          output parms - returns amount of memory (MB)  left in int data type
+
+        //pre: have a constructed UtPod
+        //post: number of MB in memory available is returned
       */
 
       int getRemainingMemory();
